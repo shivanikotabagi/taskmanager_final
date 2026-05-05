@@ -1,0 +1,55 @@
+.dashboard { max-width: 1200px; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px; margin-bottom: 24px;
+}
+.stat-sub { font-size: 11px; color: var(--text-muted); }
+
+.task-progress-bars { display: flex; flex-direction: column; gap: 12px; }
+.progress-row { display: flex; flex-direction: column; gap: 5px; }
+.progress-label {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--text-secondary); font-weight: 500;
+}
+.progress-track {
+  height: 6px; background: var(--bg-hover); border-radius: 3px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+.dashboard-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+@media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } }
+
+.dash-item {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid var(--border); cursor: pointer;
+  transition: background var(--transition); border-radius: var(--radius-sm);
+}
+.dash-item:last-child { border-bottom: none; }
+.dash-item:hover { padding-left: 6px; }
+.dash-item-main { flex: 1; min-width: 0; }
+.dash-item-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-item-meta { font-size: 11px; color: var(--text-muted); }
+
+.dash-role-chip {
+  display: inline-flex; align-items: center;
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.8px;
+}
+
+.overdue-alert {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--danger-dim); border: 1px solid var(--danger);
+  border-radius: var(--radius); padding: 12px 16px;
+  margin-bottom: 20px; font-size: 13px; color: var(--danger);
+  animation: fadeIn 0.3s ease;
+}
+.overdue-alert strong { font-weight: 700; }
+.overdue-alert .btn { margin-left: auto; color: var(--danger); }
